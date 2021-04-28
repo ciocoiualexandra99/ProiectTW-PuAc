@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link
+      href="assets/css/main.style.css"
+      rel="stylesheet"
+      type="text/css"
+      media="all"
+    />
+    <link
+      href="assets/css/slider.css"
+      rel="stylesheet"
+      type="text/css"
+      media="all"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+    />
+  </head>
+  <body id="top">
+    <div id="loginModal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="closeLogin">&times;</span>
+        <div class="loginModal">
+          <form class="login-form">
+            <h2>Login</h2>
+            <input
+              class="btmspace-15"
+              type="text"
+              id="loginUsername"
+              name="loginUsername"
+              autocomplete="loginName"
+              required
+              placeholder="username"
+              minlength="3"
+            />
+            <input
+              class="btmspace-15"
+              type="password"
+              name="loginPassword"
+              id="loginPassword"
+              placeholder="password"
+              minlength="3"
+              required
+              autocomplete="login-password"
+            />
+            <div class="info-auth">
+              <span>Don't have an account?</span>
+              <a href="#" id="openRegisterModal"> Register here</a>
+            </div>
+
+            <button class="btn green" type="submit">Login</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div id="registerModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close" id="closeRegister">&times;</span>
+        <div class="registerModal">
+          <form class="register-form">
+            <h2>Register</h2>
+            <input
+              class="btmspace-15"
+              type="text"
+              name="loginName"
+              autocomplete="loginName"
+              placeholder="Full Name"
+            />
+            <input
+              class="btmspace-15"
+              type="text"
+              name="loginUsername"
+              placeholder="username"
+              autocomplete="loginUsername"
+            />
+            <input
+              class="btmspace-15"
+              type="password"
+              name="loginPassword"
+              placeholder="password"
+            />
+            <div class="info-auth">
+              <span>Already have an account?</span>
+              <a href="#" id="account"> Login here</a>
+            </div>
+
+            <button class="btn green" type="submit">Register</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="wrapper">
+      <header id="header">
+        <div id="logo" class="fl_left">
+          <h1><a href="index.html">Colossus</a></h1>
+        </div>
+        <nav id="mainav" class="fl_right">
+          <ul class="clear">
+            <li class="active"><a href="index.html">Home</a></li>
+            <li>
+              <a class="drop" href="#"
+                ><i class="fas fa-sort-down"></i> Pages</a
+              >
+              <ul>
+                <li><a href="#">Gallery</a></li>
+                <li><a href="#">Full Width</a></li>
+                <li><a href="#">Sidebar Left</a></li>
+                <li><a href="#">Sidebar Right</a></li>
+                <li><a href="#">Basic Grid</a></li>
+              </ul>
+            </li>
+            <li>
+              <a class="drop" href="#">
+                <i class="fas fa-sort-down"></i> Dropdown</a
+              >
+              <ul>
+                <li><a href="#">Level 2</a></li>
+                <li>
+                  <a class="drop" href="#">Level 2 + Drop</a>
+                  <ul>
+                    <li><a href="#">Level 3</a></li>
+                    <li><a href="#">Level 3</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li><a href="#">Link Text</a></li>
+
+            <li id="accountLi">
+              <a title="Account" href="#" id="openLoginModal"
+                ><i class="far fa-user"></i> Account</a
+              >
+            </li>
+            <li id="logoutLi">
+              <a title="Logout" href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+    </div>
+    <div class="wrapper">
+      <div class="slideshow-container">
+        <div class="mySlides fade">
+          <div class="numbertext">1 / 3</div>
+          <img src="./images/demo/slides/01.png" style="width: 100%" />
+          <div class="txtoverlay">
+            <div class="centralise">
+              <div class="verticalwrap">
+                <article>
+                  <h2 class="heading uppercase">
+                    Curabitur ullamcorper malesuada tempor
+                  </h2>
+                  <div class="flex">
+                    <p>
+                      <a class="btn orange" href="#"
+                        >Suspendisse lobortis mauris</a
+                      >
+                    </p>
+                    <p>
+                      <a class="btn red" href="#"
+                        >Suspendisse lobortis mauris</a
+                      >
+                    </p>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mySlides fade">
+          <div class="numbertext">2 / 3</div>
+          <img src="./images/demo/slides/02.png" style="width: 100%" />
+          <div class="text">Caption Two</div>
+        </div>
+
+        <div class="mySlides fade">
+          <div class="numbertext">3 / 3</div>
+          <img src="./images/demo/slides/03.png" style="width: 100%" />
+          <div class="text">Caption Three</div>
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+      <br />
+
+      <div class="dotsContainer">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+      </div>
+    </div>
+    <div class="wrapper row2">
+      <div id="services" class="clear">
+        <div class="group">
+          <div class="one_third first">
+            <article class="service">
+              <i class="icon red circle fa fa-bell-o"></i>
+              <h2 class="heading">Phasellus accumsan velit lacus</h2>
+              <p class="btmspace-10">
+                Ut vitae mi turpis donec convallis turpis bibendum dolor
+                hendrerit eget ultrices.
+              </p>
+              <p><a href="#">Read More &raquo;</a></p>
+            </article>
+          </div>
+          <div class="one_third">
+            <article class="service">
+              <i class="icon orange circle fa fa-bicycle"></i>
+              <h2 class="heading">Duis in dictum erat phasellus cursus</h2>
+              <p class="btmspace-10">
+                Ut augue ante euismod vitae scelerisque non tincidunt ut velit
+                integer et iaculis.
+              </p>
+              <p><a href="#">Read More &raquo;</a></p>
+            </article>
+          </div>
+          <div class="one_third">
+            <article class="service">
+              <i class="icon green circle fa fa-mortar-board"></i>
+              <h2 class="heading">Vivamus accumsan mollis mi in ultricies</h2>
+              <p class="btmspace-10">
+                Nullam commodo orci ut justo bibendum tristique proin vel est at
+                risus volutpat.
+              </p>
+              <p><a href="#">Read More &raquo;</a></p>
+            </article>
+          </div>
+        </div>
+
+        <div class="clear"></div>
+      </div>
+    </div>
+
+    <div class="wrapper row6">
+      <section id="cta" class="clear">
+        <div class="three_quarter first">
+          <h2 class="heading">Fusce quis feugiat urna dui leo egestas augue</h2>
+          <p>
+            Aenean semper elementum tellus, ut placerat leo. Quisque vehicula,
+            urna sit amet pulvinar dapibus.
+          </p>
+        </div>
+        <div class="one_quarter">
+          <a class="btn" href="#"
+            >Get it now <span class="fa fa-arrow-right"></span
+          ></a>
+        </div>
+      </section>
+    </div>
+
+    <div class="wrapper row2">
+      <div class="latest">
+        <ul class="nospace group">
+          <li>
+            <figure>
+              <a class="overlay" href="#"
+                ><img class="normal" src="images/demo/latest/01.png" alt=""
+              /></a>
+              <figcaption class="inspace-30 center">
+                <p class="bold uppercase">Ante lectus laoreet</p>
+                <p><a href="#">View Here &raquo;</a></p>
+              </figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure>
+              <a class="overlay" href="#"
+                ><img class="normal" src="images/demo/latest/01.png" alt=""
+              /></a>
+              <figcaption class="inspace-30 center">
+                <p class="bold uppercase">Non facilisis tellus</p>
+                <p><a href="#">View Here &raquo;</a></p>
+              </figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure>
+              <a class="overlay" href="#"
+                ><img class="normal" src="images/demo/latest/01.png" alt=""
+              /></a>
+              <figcaption class="inspace-30 center">
+                <p class="bold uppercase">In egestas tincidunt</p>
+                <p><a href="#">View Here &raquo;</a></p>
+              </figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure>
+              <a class="overlay" href="#"
+                ><img class="normal" src="images/demo/latest/01.png" alt=""
+              /></a>
+              <figcaption class="inspace-30 center">
+                <p class="bold uppercase">Integer ullamcorper</p>
+                <p><a href="#">View Here &raquo;</a></p>
+              </figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure>
+              <a class="overlay" href="#"
+                ><img class="normal" src="images/demo/latest/01.png" alt=""
+              /></a>
+              <figcaption class="inspace-30 center">
+                <p class="bold uppercase">Cras lectus pulvinar</p>
+                <p><a href="#">View Here &raquo;</a></p>
+              </figcaption>
+            </figure>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="wrapper row3">
+      <main class="container nospace clear">
+        <!-- main body -->
+
+        <div class="group">
+          <div class="one_half first paditout">
+            <h2 class="heading uppercase btmspace-50">
+              Integer varius enim id augue faucibus mattis
+            </h2>
+            <ul class="nospace group" id="show-list">
+              <li class="btmspace-30">
+                <article class="service largeicon">
+                  <i class="icon nobg circle fa fa-ra"></i>
+                  <h6 class="heading"><a href="#">Vestibulum nibh enim</a></h6>
+                  <p>
+                    Aenean semper elementum tellus, ut placerat leo. Quisque
+                    vehicula, urna sit amet.
+                  </p>
+                </article>
+              </li>
+              <li class="btmspace-30">
+                <article class="service largeicon">
+                  <i class="icon nobg circle fa fa-female"></i>
+                  <h6 class="heading">
+                    <a href="#">Praesent facilisis diam</a>
+                  </h6>
+                  <p>
+                    Aenean semper elementum tellus, ut placerat leo. Quisque
+                    vehicula, urna sit amet.
+                  </p>
+                </article>
+              </li>
+              <li>
+                <article class="service largeicon">
+                  <i class="icon nobg circle fa fa-history"></i>
+                  <h6 class="heading">
+                    <a href="#">Proin ac augue sed nulla</a>
+                  </h6>
+                  <p>
+                    Aenean semper elementum tellus, ut placerat leo. Quisque
+                    vehicula, urna sit amet.
+                  </p>
+                </article>
+              </li>
+            </ul>
+          </div>
+          <div class="one_half">
+            <a href="#"
+              ><img class="normal" src="images/demo/vertical.png" alt=""
+            /></a>
+          </div>
+        </div>
+
+        <!-- / main body -->
+        <div class="clear"></div>
+      </main>
+    </div>
+    <div class="wrapper row4">
+      <footer id="footer" class="clear">
+        <div class="one_quarter first">
+          <h6 class="title">Company Details</h6>
+          <address class="btmspace-15">
+            Company Name<br />
+            Street Name &amp; Number<br />
+            Town<br />
+            Postcode/Zip
+          </address>
+          <ul class="nospace">
+            <li class="btmspace-10">
+              <span class="fa fa-phone"></span> +00 (123) 456 7890
+            </li>
+            <li><span class="fa fa-envelope-o"></span> info@domain.com</li>
+          </ul>
+        </div>
+        <div class="one_quarter">
+          <h6 class="title">Quick Links</h6>
+          <ul class="nospace linklist">
+            <li><a href="#">Home Page</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="one_quarter">
+          <h6 class="title">From The Blog</h6>
+          <article>
+            <h2 class="nospace"><a href="#">Lorem ipsum dolor</a></h2>
+            <time class="smallfont" datetime="2045-04-06"
+              >Friday, 6<sup>th</sup> April 2045</time
+            >
+            <p>
+              Vestibulumaccumsan egestibulum eu justo convallis augue estas
+              aenean elit intesque sed.
+            </p>
+          </article>
+        </div>
+        <div class="one_quarter">
+          <h6 class="title">Keep In Touch</h6>
+          <form class="btmspace-30" method="post" action="#">
+            <fieldset>
+              <legend>Newsletter:</legend>
+              <input
+                class="btmspace-15"
+                type="text"
+                value=""
+                placeholder="Email"
+              />
+              <button type="submit" value="submit">Submit</button>
+            </fieldset>
+          </form>
+          <ul class="faico clear">
+            <li>
+              <a class="faicon-facebook" href="#"
+                ><i class="fa fa-facebook"></i
+              ></a>
+            </li>
+            <li>
+              <a class="faicon-twitter" href="#"
+                ><i class="fa fa-twitter"></i
+              ></a>
+            </li>
+            <li>
+              <a class="faicon-linkedin" href="#"
+                ><i class="fa fa-linkedin"></i
+              ></a>
+            </li>
+            <li>
+              <a class="faicon-google-plus" href="#"
+                ><i class="fa fa-google-plus"></i
+              ></a>
+            </li>
+            <li>
+              <a class="faicon-instagram" href="#"
+                ><i class="fa fa-instagram"></i
+              ></a>
+            </li>
+            <li>
+              <a class="faicon-tumblr" href="#"><i class="fa fa-tumblr"></i></a>
+            </li>
+          </ul>
+        </div>
+      </footer>
+    </div>
+
+    <div class="wrapper row5">
+      <div id="copyright" class="clear">
+        <p class="fl_left">
+          Copyright &copy; 2018 - All Rights Reserved -
+          <a href="#">Domain Name</a>
+        </p>
+        <p class="fl_right">
+          Template by
+          <a
+            target="_blank"
+            href="https://www.os-templates.com/"
+            title="Free Website Templates"
+            >OS Templates</a
+          >
+        </p>
+      </div>
+    </div>
+    <script src="./assets/js/slideshow.js"></script>
+    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/crud.js"></script>
+  </body>
+</html>
