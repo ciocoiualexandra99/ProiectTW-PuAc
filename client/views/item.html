@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PuAc My Item</title>
+
+    <link
+      href="../assets/css/main.style.css"
+      rel="stylesheet"
+      type="text/css"
+      media="all"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+    <script defer src="../assets/js/crud.js"></script>
+    <script defer src="../assets/js/slideshow.js"></script>
+    <script defer src="../assets/js/header.js"></script>
+    <script defer src="../assets/js/viewItem.js"></script>
+  </head>
+  <body id="top">
+    <div id="addPostModal" class="modal">
+      <div class="modal-content full-width">
+        <span class="close" id="closeAddPost">&times;</span>
+        <div class="addPostModal">
+          <form class="addPost-form">
+            <h2>Adauga Anunt</h2>
+            <div class="flex">
+              <input
+                class="mb-15 mr-10"
+                type="text"
+                id="titleAddPost"
+                name="titleAddPost"
+                autocomplete="titleAddPost"
+                placeholder="Titlu"
+                required
+              />
+              <input
+                class="mb-15 mr-10"
+                type="number"
+                id="priceAddPost"
+                name="priceAddPost"
+                autocomplete="priceAddPost"
+                placeholder="Pret"
+                required
+              />
+              <select name="category" id="categoryAddPost" required>
+                <option value="">Selecteaza categorie</option>
+                <option value="auto">Auto, moto si ambarcatiuni</option>
+                <option value="realEstates">Imobiliare</option>
+                <option value="electrics">Electrocasnice si Electronice</option>
+                <option value="clothes">Haine - Incaltaminte</option>
+              </select>
+            </div>
+
+            <textarea
+              id="detailsAddPost"
+              name="detailsAddPost"
+              autocomplete="detailsAddPost"
+              placeholder="descriere"
+            ></textarea>
+            <h4>Adauga oferta</h4>
+            <div id="allAddPostItems">
+              <div class="offer-wrapper">
+                <div class="flex">
+                  <input
+                    class="mb-15 mr-10"
+                    type="text"
+                    data-type="offer"
+                    name="offerAddPost"
+                    autocomplete="offerAddPost"
+                    placeholder="Titlu"
+                    required
+                  />
+                  <input
+                    class="mb-15"
+                    type="number"
+                    id="priceOfferAddPost"
+                    name="priceOfferAddPost"
+                    autocomplete="priceOfferAddPost"
+                    placeholder="Pret"
+                    required
+                  />
+                </div>
+                <input
+                  class="mb-15 mr-10"
+                  type="url"
+                  id="linkOfferAddPost"
+                  name="linkOfferAddPost"
+                  autocomplete="linkOfferAddPost"
+                  placeholder="http://127.0.0.1:5500"
+                  required
+                />
+                <textarea
+                  name="descriptionOfferAddPost"
+                  autocomplete="descriptionOfferAddPost"
+                  placeholder="Descriere Oferta"
+                ></textarea>
+              </div>
+            </div>
+
+            <div class="flex justify-start">
+              <h6>Adauga inca un anunt</h6>
+              <button
+                class="btn green space inline-block"
+                type="button"
+                onclick="addOneMorePost()"
+              >
+                <i class="fas fa-folder-plus"></i>
+              </button>
+            </div>
+            <button class="btn green" type="submit">Adauga</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div id="loginModal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="closeLogin">&times;</span>
+        <div class="loginModal">
+          <form name="login-form" class="login-form">
+            <h2>Login</h2>
+            <input
+              class="mb-15"
+              type="text"
+              id="loginUsername"
+              name="loginUsername"
+              autocomplete="loginName"
+              required
+              placeholder="username"
+              minlength="2"
+            />
+            <input
+              class="mb-15"
+              type="password"
+              name="loginPassword"
+              id="loginPassword"
+              placeholder="password"
+              minlength="2"
+              required
+              autocomplete="login-password"
+            />
+            <div id="errorsLogin"></div>
+            <div class="info-auth">
+              <span>Don't have an account?</span>
+              <a href="#" id="openRegisterModal"> Register here</a>
+            </div>
+
+            <button class="btn green" type="submit">Login</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div id="registerModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close" id="closeRegister">&times;</span>
+        <div class="registerModal">
+          <form name="register-form" class="register-form">
+            <h2>Register</h2>
+            <input
+              class="mb-15"
+              type="text"
+              name="nameRegister"
+              autocomplete="nameRegister"
+              placeholder="Full Name"
+              required
+            />
+            <input
+              class="mb-15"
+              type="text"
+              name="usernameRegister"
+              autocomplete="username"
+              placeholder="Username"
+              required
+            />
+            <input
+              class="mb-15"
+              type="password"
+              name="passwordRegister"
+              autocomplete="passwordRegister"
+              placeholder="Password"
+              required
+            />
+            <input
+              class="mb-15"
+              type="password"
+              name="confirmPasswordRegister"
+              autocomplete="confirmPasswordRegister"
+              placeholder="Confirm Password"
+              required
+            />
+            <div id="errorsRegister"></div>
+            <div class="info-auth">
+              <span>Already have an account?</span>
+              <a href="#" id="account"> Login here</a>
+            </div>
+
+            <button class="btn green" type="submit">Register</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div id="addPostItemModal" class="modal">
+      <div class="modal-content full-width">
+        <span class="close" id="closeAddPostItem">&times;</span>
+        <div class="addPostItemModal">
+          <form id="addPostItem-form" name="addPostItem-form">
+            <h4>Adauga oferta</h4>
+
+            <div style="min-height: 10px"></div>
+            <div id="allAddPostItems">
+              <div class="offer-wrapper">
+                <div class="flex">
+                  <input
+                    class="mb-15 mr-10"
+                    type="text"
+                    data-type="offer"
+                    name="title"
+                    autocomplete="title"
+                    placeholder="Titlu*"
+                    required
+                  />
+                  <input
+                    class="mb-15 mr-10"
+                    type="url"
+                    data-type="offer"
+                    name="urlLink"
+                    autocomplete="urlLink"
+                    placeholder="Link to site"
+                    required
+                  />
+                </div>
+                <div class="flex">
+                  <input
+                    class="mb-15 mr-10"
+                    type="number"
+                    name="price"
+                    autocomplete="price"
+                    placeholder="Pret*"
+                    required
+                  />
+                  <select name="currency" class="mb-15 mr-10" required>
+                    <option value="">Select Currency*</option>
+                    <option value="RON">RON</option>
+                    <option value="EURO">EURO</option>
+                    <option value="$">$</option>
+                  </select>
+                </div>
+                <textarea
+                  name="description"
+                  class="mb-15 mr-10"
+                  autocomplete="description"
+                  placeholder="Descriere Oferta*"
+                ></textarea>
+                <hr />
+                <div class="flex">
+                  <input
+                    class="mb-15 mr-10"
+                    type="text"
+                    name="image-offer"
+                    autocomplete="image"
+                    placeholder="Image*"
+                    required
+                  />
+                  <input
+                    class="mb-15 mr-10"
+                    type="text"
+                    name="image-offer"
+                    autocomplete="image"
+                    placeholder="Image"
+                  />
+                  <input
+                    class="mb-15 mr-10"
+                    type="text"
+                    name="image-offer"
+                    autocomplete="image"
+                    placeholder="Image"
+                  />
+                </div>
+                <div class="flex">
+                  <input
+                    class="mb-15 mr-10"
+                    type="text"
+                    name="image-offer"
+                    autocomplete="image"
+                    placeholder="Image"
+                  />
+                  <input
+                    class="mb-15 mr-10"
+                    type="text"
+                    name="image-offer"
+                    autocomplete="image"
+                    placeholder="Image"
+                  />
+                  <input
+                    class="mb-15 mr-10"
+                    type="text"
+                    name="image-offer"
+                    autocomplete="image"
+                    placeholder="Image"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <button class="btn green" type="submit">Adauga</button>
+          </form>
+        </div>
+      </div>
+    </div>
+   
+    <div class="wrapper slim">
+      <header id="header">
+        <div id="logo" class="fl_left">
+          <div class="container-logo">
+            <img  src="https://www.vhv.rs/dpng/d/588-5886888_farmers-market-market-stall-png-icon-transparent-png.png" alt="">
+            <h1><a href="../index.html"> PuAc</a></h1>
+          </div>
+        </div>
+        <nav id="mainav" class="fl_right">
+          <ul class="clear">
+            <li  title="Pagina de achizitii">
+              <a href="all-items.html"
+                ><i class="fas fa-tags"></i> Toate Achizitiile </a
+              >
+            </li>
+            <li id="myItems" title="Pagina de achizitii">
+              <a href="items.html"
+                ><i class="fas fa-cart-plus"></i> Achizitiile mele</a
+              >
+            </li>
+
+            <li id="accountLi">
+              <a title="Account" href="#" id="openLoginModal"
+                ><i class="far fa-user"></i> Account</a
+              >
+            </li>
+            <li id="accountLiWithUsername" style="display: none">
+              <a title="Account" href="#">
+                <i class="far fa-user"></i>
+                Welcome,
+              </a>
+            </li>
+            <li id="logoutLi" style="display: none">
+              <a title="Logout" href="#" onclick="logout()"
+                ><i class="fas fa-sign-out-alt"></i> Logout</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </header>
+    </div>
+
+    <div id="hole" class="wrapper slim row2" style="min-height: 100vh">
+      <div id="services" class="clear">
+        <div class="flex justify-start">
+          <h2>Vizualiare completa achizitie</h2>
+          <button id="addItemOption" class="btn inline-block green space">
+            Adauga Optiune
+          </button>
+        </div>
+
+        <div id="errors"></div>
+        <div style="min-height: 50px"></div>
+        <div id="viewItems"></div>
+
+        <div class="clear"></div>
+
+        <div class="clear"></div>
+      </div>
+    </div>
+
+    <div class="wrapper row5">
+      <div id="copyright" class="clear">
+        <p class="fl_left">
+          Copyright &copy; 2018 - All Rights Reserved -
+          <a href="#">PuAc Team</a>
+        </p>
+        <p class="fl_right">
+          Project by Alexandra and Alexandru
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

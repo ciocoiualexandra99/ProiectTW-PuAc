@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="assets/css/main.style.css"
+      rel="stylesheet"
+      type="text/css"
+      media="all"
+    />
+    <link
+      href="assets/css/slider.css"
+      rel="stylesheet"
+      type="text/css"
+      media="all"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+    />
+    <script defer src="./assets/js/header.js"></script>
+    <script defer src="./assets/js/slideshow.js"></script>
+    <script defer src="./assets/js/crud.js"></script>
+  </head>
+  <body id="top">
+    <div id="loginModal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="closeLogin">&times;</span>
+        <div class="loginModal">
+          <form name="login-form" class="login-form">
+            <h2>Login</h2>
+            <input
+              class="mb-15"
+              type="text"
+              id="loginUsername"
+              name="loginUsername"
+              autocomplete="loginName"
+              required
+              placeholder="username"
+              minlength="2"
+            />
+            <input
+              class="mb-15"
+              type="password"
+              name="loginPassword"
+              id="loginPassword"
+              placeholder="password"
+              minlength="2"
+              required
+              autocomplete="login-password"
+            />
+            <div id="errorsLogin"></div>
+            <div class="info-auth">
+              <span>Don't have an account?</span>
+              <a href="#" id="openRegisterModal"> Register here</a>
+            </div>
+
+            <button class="btn green" type="submit">Login</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div id="registerModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close" id="closeRegister">&times;</span>
+        <div class="registerModal">
+          <form name="register-form" class="register-form">
+            <h2>Register</h2>
+            <input
+              class="mb-15"
+              type="text"
+              name="nameRegister"
+              autocomplete="nameRegister"
+              placeholder="Full Name"
+              required
+            />
+            <input
+              class="mb-15"
+              type="text"
+              name="usernameRegister"
+              autocomplete="username"
+              placeholder="Username"
+              required
+            />
+            <input
+              class="mb-15"
+              type="password"
+              name="passwordRegister"
+              autocomplete="passwordRegister"
+              placeholder="Password"
+              required
+            />
+            <input
+              class="mb-15"
+              type="password"
+              name="confirmPasswordRegister"
+              autocomplete="confirmPasswordRegister"
+              placeholder="Confirm Password"
+              required
+            />
+            <div id="errorsRegister"></div>
+            <div class="info-auth">
+              <span>Already have an account?</span>
+              <a href="#" id="account"> Login here</a>
+            </div>
+
+            <button class="btn green" type="submit">Register</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="wrapper slim">
+      <header id="header">
+        <div id="logo" class="fl_left">
+          <div class="container-logo">
+            <img  src="https://www.vhv.rs/dpng/d/29-295866_vector-abstract-background-png-transparent-png.png" alt="">
+            <h1><a href="index.html"> PuAc</a></h1>
+          </div>
+          
+        </div>
+        <nav id="mainav" class="fl_right">
+          <ul class="clear">
+            <li  title="Pagina de achizitii">
+              <a href="views/all-items.html"
+                ><i class="fas fa-tags"></i> Toate Achizitiile </a
+              >
+            </li>
+            <li id="myItems" style="display: none" title="Pagina de achizitii">
+              <a href="views/items.html"
+                ><i class="fas fa-cart-plus"></i> Achizitiile mele</a
+              >
+            </li>
+
+            <li id="accountLi">
+              <a title="Account" href="#" id="openLoginModal"
+                ><i class="far fa-user"></i> Account</a
+              >
+            </li>
+            <li id="accountLiWithUsername" style="display: none">
+              <a title="Account" href="#">
+                <i class="far fa-user"></i>
+                Welcome,
+              </a>
+            </li>
+            <li id="logoutLi" style="display: none">
+              <a title="Logout" href="#" onclick="logout()"
+                ><i class="fas fa-sign-out-alt"></i> Logout</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </header>
+    </div>
+
+    <div class="wrapper center ">
+      <div class="slideshow-container">
+        <div class="mySlides fade">
+          <div class="numbertext">1 / 2</div>
+          <img src="images/p1.jpg" style="width: 100%" />
+          <div class="txtoverlay">
+            <div class="centralise">
+              <div class="verticalwrap">
+                <article>
+                  <div class="flex justify-center">
+                    <p>
+                      <a class="btn orange" href="/views/items.html"
+                        >Adauga Achizitie</a
+                      >
+                    </p>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mySlides fade">
+          <div class="numbertext">2 / 2</div>
+          <img
+            src="images/p2.jpg"
+            style="width: 100%"
+          />
+          <div class="txtoverlay">
+            <div class="centralise">
+              <div class="verticalwrap">
+                <article>
+                  <div class="flex justify-center">
+                    <p>
+                      <a class="btn orange" href="/views/items.html"
+                        >Adauga Achizitie</a
+                      >
+                    </p>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+      <br />
+
+      <div class="dotsContainer">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+      </div>
+    </div>
+    <div class="wrapper slim row2">
+      <div id="services" class="clear">
+        <div class="group">
+          <div class="one_third">
+            <article class="service">
+              <i class="icon red circle fa fa-bell-o"></i>
+              <h2 class="heading">Adauga o dorinta</h2>
+              <p class="mb-10">
+                Poti introduce acum achizitia pe care ti-o doresti si de care nu erai convins pana acum.
+              </p>
+            </article>
+          </div>
+          <div class="one_third">
+            <article class="service">
+              <i class="icon orange circle fa fa-bell-o"></i>
+              <h2 class="heading">Schimba idei</h2>
+              <p class="mb-10">
+                Acum te poti consulta si schimab idei cu sfatuitori pentru achizitia perfecta.
+              </p>
+            </article>
+          </div>
+          <div class="one_third">
+            <article class="service">
+              <i class="icon green circle fa fa-bell-o"></i>
+              <h2 class="heading">Clasament </h2>
+              <p class="mb-10">
+                Note si referinte pentru fiecare postare care sa te ajute la decizie finala.
+              </p>
+            </article>
+          </div>
+        </div>
+
+        <div class="clear"></div>
+      </div>
+    </div>
+
+    <div class="wrapper center row6">
+      <section id="cta" class="clear">
+        <div class="three_quarter first">
+          <form
+            action="/views/item.html"
+            id="addPostItem-form"
+            name="addPostItem-form"
+          >
+            <div class="flex">
+              <input
+                class="inputSearch mr-15"
+                type="text"
+                name="id"
+                autocomplete="image"
+                placeholder="Paste Link"
+              />
+              <button class="btn inline-block space green ml-15" type="submit">
+                Adauga
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+    <div class="wrapper  row5">
+      <div id="copyright" class="clear">
+        <p class="fl_left">
+          Copyright &copy; 2018 - All Rights Reserved -
+          <a href="#">PuAc Team</a>
+        </p>
+        <p class="fl_right">
+          Project by Alexandra and Alexandru
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

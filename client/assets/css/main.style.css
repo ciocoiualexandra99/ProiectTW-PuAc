@@ -1,0 +1,532 @@
+@charset "utf-8";
+@import url("resets.css");
+
+.offer-wrapper {
+    padding: 20px;
+    box-sizing: border-box;
+    border-left: 4px solid #a7dfc4;
+    background: #f6f6f6;
+    margin-bottom: 20px;
+}
+
+#header #logo .container-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#header #logo h1 {
+    
+    padding: 0;
+    font-size: 22px;
+    text-transform: uppercase;
+}
+
+#header #logo img {
+    width:40px;
+    height: auto;
+}
+
+textarea {
+    resize: vertical;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="url"],
+input[type="number"],
+input[type="password"],
+input[type="text"],
+select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.inputSearch {
+    padding: 15px !important;
+    border-radius: 8px !important;
+    color: #000 !important;
+    margin-right: 10px !important;
+}
+
+input[type="submit"] {
+    width: 100%;
+    background-color: #4caf50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+li {
+    list-style-type: none;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px;
+    border-radius: 8px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #fff;
+    border: 1px solid transparent;
+    width: 100%;
+    transition-duration: 0.5s;
+}
+
+.inline-block {
+    display: inline-block;
+    width: auto;
+}
+
+.btn.space {
+    padding: 10px;
+    margin: 10px;
+}
+
+.btn:hover {
+    cursor: pointer;
+}
+
+.btn.round {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+/* SLIDER CSS */
+.txtoverlay {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    white-space: normal;
+}
+
+.centralise {
+    display: block;
+    max-width: 978px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.verticalwrap {
+    display: table;
+    width: 100%;
+    height: 100%;
+    border: none;
+    text-align: center;
+}
+
+.txtoverlay article {
+    display: table-cell;
+    padding: 0;
+    border: none;
+    vertical-align: middle;
+}
+
+.txtoverlay .heading {
+    font-size: 60px;
+    line-height: 60px;
+    margin-bottom: 30px;
+}
+
+.txtoverlay .btn {
+    margin-top: 475px;
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 8px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #fff;
+}
+
+.txtoverlay .pushright {
+    margin-right: 25px;
+}
+
+#services {
+    padding: 50px 0;
+}
+
+/* Copyright */
+#copyright {
+    padding: 30px 0;
+}
+
+#copyright * {
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigation */
+nav ul,
+nav ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#mainav,
+#breadcrumb,
+.sidebar nav {
+    line-height: normal;
+}
+
+#mainav ul {
+    text-transform: uppercase;
+}
+
+#mainav li {
+    display: inline-block;
+    position: relative;
+    margin: 0 30px 0 0;
+    padding: 0;
+}
+
+#mainav li:last-child {
+    margin-right: 0;
+}
+
+body {
+    color: #888888;
+    background-color: #ffffff;
+}
+
+a {
+    color: #96afaa;
+}
+
+.icon {
+    color: #ffffff;
+    background-color: #000000;
+}
+
+.red {
+    background-color: #dc143c;
+}
+
+.orange {
+    background-color: #ec9700;
+}
+.green {
+    background-color: #a7dfc4;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.heading {
+    color: #525050;
+    border-color: inherit;
+}
+
+.row2 {
+    color: #888888;
+    background-color: #ffffff;
+}
+
+.row5,
+.row5 a {
+    color: #888888;
+    background-color: #ebebeb;
+}
+.row6 {
+    padding: 20px;
+    color: #ffffff;
+    background-color: #96afaa;
+}
+.row6 a {
+    color: #96afaa;
+    background-color: #ffffff;
+}
+
+#mainav li a {
+    color: inherit;
+}
+
+/* Modal CSS */
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    padding-top: 100px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0, 0, 0); 
+    background-color: rgba(0, 0, 0, 0.4); 
+}
+
+/* Modal Content */
+ .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    display: block;
+    width: 500px;
+}
+
+.modal-content.full-width {
+    width: 80%;
+} 
+
+/* The Close Button */
+ .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.info-auth {
+    font-size: 14px;
+    margin: 10px 0;
+} 
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-start {
+    justify-content: start;
+}
+
+.itemsAdded {
+    padding: 10px;
+    display: inline-block;
+    margin: 30px 10px 0 10px;
+    border-radius: 5px;
+    border: 1px solid #d6cfcf;
+}
+
+.itemsAdded i {
+    margin-right: 5px;
+}
+
+.image-small {
+    height: auto;
+    max-width: 30%;
+    margin: 10px;
+    box-shadow: 0px 1px 1px #f2f2f2;
+    border-radius: 10px;
+}
+
+.error {
+    color: red;
+    margin: 5px;
+    font-size: 15px;
+}
+
+.filterBox{
+    height: 150px;
+}
+
+.filters .filter.item {
+    display: flex;
+}
+
+.filterContainer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.accordion {
+    max-width: 100%;
+}
+
+.accordion .accordion-item .accordion-title {
+    padding: 1rem;
+    font-size: 1.5rem;
+    background-color: #f2f2f2;
+    color: rgb(0, 0, 0);
+    transition: 0.5s;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    position: relative;
+}
+
+.accordion .accordion-item .accordion-title:hover {
+    background-color: #e3e6e7;
+}
+
+.accordion .accordion-item .accordion-content {
+    position: relative;
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    overflow-y: hidden;
+    transition: all 0.5s ease-in;
+    border-left: 2px solid white;
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
+}
+
+.accordion .accordion-item .accordion-content p {
+    font-size: 1.25rem;
+    line-height: 1.4;
+    font-weight: 300;
+    margin: 0;
+    padding: 1rem;
+}
+
+.accordion .accordion-item.active .accordion-title {
+    background-color: #f2f2f2;
+}
+
+.accordion .accordion-item.active .accordion-title:after {
+    transform: rotate(180deg);
+    transition: transform 0.5s ease-in;
+}
+
+.accordion .accordion-title.active + .accordion-content {
+    height: auto;
+    border-right: 2px solid #f2f2f2;
+    border-bottom: 2px solid #f2f2f2;
+    border-left: 2px solid #f2f2f2;
+    opacity: 1;
+    margin-bottom: 1rem;
+    transition: all 0.5s ease-in;
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.wrapper {
+    width: 100%;
+    margin: auto;
+    
+}
+
+.center{
+    text-align: center;
+}
+
+.slim {
+    width: 70%;
+    padding: 20px;
+}
+
+.row5{
+    padding: 0 20px;
+}
+
+.offer-container{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+@media screen and (max-width: 1000px) {
+    .wrapper {
+        width: 100%;
+        overflow: hidden;
+        padding: 10px !important;
+        box-sizing: border-box;
+        text-align: center;
+    }
+    #logo{
+        float: none;
+    }
+    #mainav {
+        width: 100%;
+    }
+    .service{
+        padding:0
+    }
+    .service .icon{
+        display: none;
+    }
+    #mainav ul li{
+        width: 100%;
+        margin: 10px 0;
+    }
+    div.slideshow-container  img{
+        height: auto;
+    }
+    .prev, .next {
+        display: none;
+    }
+
+    #services .one_third {
+        width: 100%;
+    }
+    .modal-content{
+        width: 100%;
+    }
+
+    .heading.uppercase{
+        font-size: 2em;
+    }
+    
+    .filterContainer{
+        display: block;
+    }
+
+    .offer-wrapper{
+        padding: 5px;
+    }
+    .offer-container{
+        display: block;
+    }
+    .offer-container h2.heading{
+        text-transform: uppercase;
+        margin: 10px 0;
+        
+    }
+    .itemsAdded{
+        display: block;
+        text-align: left;
+        margin: 5px 0;
+    }
+
+}
